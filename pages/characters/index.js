@@ -1,35 +1,29 @@
 import {getCharacters} from "../../api/api";
-import Link from "next/link";
 import Layout from "../../components/app/Layout";
 import List from "../../components/utils/List";
 import CharacterItem from "../../components/characters/CharacterItem";
 
 const Characters = (props) => {
     return (
-        <>
-            <Layout>
-                <div className="container">
-                    <div className="Chts row">
-                        <List
-                            colMd={3}
-                            items={props.characters}
-                            render={(character) => <CharacterItem character={character}/>}
-                        />
-                    </div>
+        <Layout statusCode={props.statusCode}>
+            <div className="container">
+                <div className="Chts row">
+                    <List
+                        colMd={3}
+                        items={props.characters}
+                        render={(character) => <CharacterItem character={character}/>}
+                    />
                 </div>
-            </Layout>
-        </>
+            </div>
+        </Layout>
     )
 };
 
-export async function getStaticProps(context) {
-    const characters = await getCharacters();
+export async function getStaticProps() {
+    const { data, statusCode } = await getCharacters();
     return {
-        props: {
-            context,
-            characters
-        }
-    };
+        props: { characters: data, statusCode }
+    }
 }
 
 export default Characters;

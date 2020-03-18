@@ -1,18 +1,25 @@
 import Header from './Header';
 import Footer from "./Footer";
 import Head from "./Head";
+import Error from "next/error";
 
-const Layout = ({ children, title }) => {
-  return (
-      <>
-          <Head title={title}/>
-          <Header/>
-          <section>
-              { children }
-          </section>
-          <Footer/>
-      </>
-  )
+const Layout = ({ children, title, statusCode }) => {
+    const showChildren = (statusCode === 200 || typeof statusCode === 'undefined');
+
+    return (
+          (showChildren) ? (
+              <>
+                  <Head title={title}/>
+                  <Header/>
+                  <section>
+                      { children }
+                  </section>
+                  <Footer/>
+              </>
+          ) : (
+              <Error statusCode={statusCode}/>
+          )
+    )
 };
 
 export default React.memo(Layout);

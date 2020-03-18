@@ -1,12 +1,12 @@
 import {getCharacter, getCharacters} from "../../api/api";
 import {useRouter} from "next/router";
+import Layout from "../../components/app/Layout";
 
 const Character = ({ character }) => {
     const router = useRouter();
-    const id = router.query;
 
     return (
-        <>
+        <Layout>
             <div className="container">
                 <div className="Cht">
                     <div className="Chts-item">
@@ -21,15 +21,16 @@ const Character = ({ character }) => {
                     </div>
                 </div>
             </div>
-        </>
+        </Layout>
     )
 };
 
 export async function getStaticPaths() {
-    const characters = await getCharacters();
-    const paths = characters.map(({id}) => ({
-        params: { id: id.toString() },
-    }));
+    const { data } = await getCharacters();
+    const paths = data ?
+        data.map(({id}) => ({
+            params: { id: id.toString() },
+        })) : [{ params: { id: '1' }}];
 
     return {
         paths: paths,
@@ -38,11 +39,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const character = await getCharacter(params.id);
+    const { data, statusCode } = await getCharacter(params.id);
     return {
-        props: {
-            character
-        }
+        props: { character: data, statusCode }
     };
 }
 
