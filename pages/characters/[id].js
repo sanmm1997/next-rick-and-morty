@@ -1,7 +1,7 @@
 import {getCharacter, getCharacters} from "../../api/api";
 import {useRouter} from "next/router";
 
-const Character = (props) => {
+const Character = ({ character }) => {
     const router = useRouter();
     const id = router.query;
 
@@ -9,7 +9,16 @@ const Character = (props) => {
         <>
             <div className="container">
                 <div className="Cht">
-
+                    <div className="Chts-item">
+                        <div className="Chts-item__pic">
+                            <img src={character.image} alt=""/>
+                        </div>
+                        <div className="Chts-item__detail">
+                            <p>{character.name}</p>
+                            <p>{character.species}</p>
+                            <p>{character.gender}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
