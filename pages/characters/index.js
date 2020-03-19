@@ -1,15 +1,17 @@
 import {getCharacters} from "../../api/api";
+
 import Layout from "../../components/app/Layout";
 import List from "../../components/utils/List";
+import styles from './../../components/styles/Characters.module.scss';
 import CharacterItem from "../../components/characters/CharacterItem";
 
 const Characters = (props) => {
     return (
         <Layout statusCode={props.statusCode}>
             <div className="container">
-                <div className="Chts row">
+                <div className={[styles.list, 'row'].join(' ')}>
                     <List
-                        colMd={3}
+                        colMd={4}
                         items={props.characters}
                         render={(character) => <CharacterItem character={character}/>}
                     />
