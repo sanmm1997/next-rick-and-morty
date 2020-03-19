@@ -1,24 +1,18 @@
+import Layout from "../components/app/Layout";
+
 export default () => {
     return (
-        <>
-            <div>
-                <h1>!Hello World¡</h1>
-                <p>First app with next</p>
-                <img src="/platzi.png" alt="React logo"/>
+        <Layout>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 text-center pt-5">
+                        <h1>!Home section¡</h1>
+                        <p>First app with next</p>
+                        <img src="/platzi.png" alt="React logo"/>
+                    </div>
+                </div>
             </div>
-            <style jsx>{`
-                div {
-                    width: 100%;
-                    text-align: center;
-                }
-                h1 {
-                    color: #584f4f;
-                }
-                img {
-                    max-width: 20%;
-                }      
-            `}</style>
-        </>
+        </Layout>
     )
 }
 
