@@ -4,16 +4,16 @@ App integrated with Rick and Morty API. Basic example Next.js project.
 
 ![Screenshot](./.readme-static/screenshot-project.png)
 
-## IMPORTANTE
+## IMPORTANT
 
-Requiere Node.js >= 12
+Required Node.js >= 12
 
-## PROCESO DE INSTALACIÓN
+## INSTALLATION PROCESS
 
 * `npm install` Install project dependencies
 * `npm run dev` Run development server
 * `npm run build && npm start`  Run production build
 
-## LICENCIA 
+## LICENCE 
 
 MIT
