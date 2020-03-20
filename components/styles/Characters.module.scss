@@ -6,7 +6,8 @@
           overflow: hidden;
         }
         img {
-          transition: 1s;
+          transition: transform 1s;
+          transition-timing-function: ease-in-out;
           transform: scaleX(1.1) scaleY(1.1);
         }
       }

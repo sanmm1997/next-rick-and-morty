@@ -21,10 +21,6 @@ const Header = ({ title }) => {
                           <a className="nav-item nav-link">About me</a>
                       </Link>
                   </div>
-                  <form className="form-inline ml-auto">
-                      <input type="text" className="form-control mr-sm-2" placeholder="Search"/>
-                          <button type="submit" className="btn btn-outline-light">Search</button>
-                  </form>
               </div>
           </nav>
       </header>
