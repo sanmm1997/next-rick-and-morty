@@ -20,13 +20,13 @@ const Layout = ({ children, title, statusCode }) => {
             ) : (
                 <Error statusCode={statusCode}/>
             )}
-        <style jsx>
-        {`
-            section {
-              padding-bottom: 100px;
-            }
-        `}
-        </style>
+            <style jsx>
+            {`
+                section {
+                  padding-bottom: 100px;
+                }
+            `}
+            </style>
         </>
     )
 };
