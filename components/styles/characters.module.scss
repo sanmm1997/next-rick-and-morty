@@ -1,0 +1,33 @@
+.characters {
+  margin-top: 3%;
+  article {
+    padding: 0 1.5%;
+  }
+}
+
+.content {
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px #00000026;
+  > div {
+    &:first-child {
+      img {
+        width: 100%;
+      }
+    }
+    &:last-child {
+      padding: 5%;
+      text-align: left;
+      p, h4 {
+        margin: 0
+      }
+      h4 {
+        color: #191616;
+        font-size: 1.3em;
+      }
+      p {
+        color: #191616d4;
+        font-size: .9em;
+      }
+    }
+  }
+}

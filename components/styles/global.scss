@@ -1,0 +1,10 @@
+.form-control {
+    &:disabled, &[readonly] {
+        background-color: #ffffff;
+        border-top: none;
+        opacity: 1;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
+}

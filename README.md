@@ -1,6 +1,6 @@
 # APP RICK AND MORTY WITH NETX.JS
 
-App integrated with Rick and Morty API. Basic example Next.js project.
+This project is a basic next js app example.
 
 ![Screenshot](./.readme-static/screenshot-project.png)
 
@@ -14,6 +14,10 @@ Required Node.js >= 12
 * `npm run dev` Run development server
 * `npm run build && npm start`  Run production build
 
-## LICENCE 
+## SCREENSHOTS
 
+![Screenshot](./.readme-static/screenshot-project-1.png)
+
+
+## LICENCE 
 MIT

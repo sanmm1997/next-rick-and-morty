@@ -1,31 +1,39 @@
-import {getCharacters} from "../../api/api";
-
+import {useGraphQL} from "graphql-react/universal/useGraphQL";
+import {getCharactersQuery} from "../../api/rickAndMorty";
+import styles from '../../components/styles/characters.module.scss';
+/**
+ *
+ * Components
+ *
+ */
 import Layout from "../../components/app/Layout";
 import List from "../../components/utils/List";
-import styles from './../../components/styles/Characters.module.scss';
 import CharacterItem from "../../components/characters/CharacterItem";
 
 const Characters = (props) => {
+    const { loading, cacheValue: { data, ...errors } = {} } = useGraphQL(getCharactersQuery);
+
     return (
-        <Layout statusCode={props.statusCode}>
+        <Layout
+            loading={loading}
+            statusCode={props.statusCode}
+        >
             <div className="container">
-                <div className={[styles.list, 'row'].join(' ')}>
-                    <List
-                        colMd={4}
-                        items={props.characters}
-                        render={(character) => <CharacterItem character={character}/>}
-                    />
+                <div className={['row', styles.characters].join(' ')}>
+                    <div className="col-12 text-center">
+                        <h1>Characters Rick and Morty</h1>
+                    </div>
+                    {data &&
+                        (<List
+                            colMd={3}
+                            items={data.characters.results}
+                            render={(character) => <CharacterItem character={character}/>}
+                        />)
+                    }
                 </div>
             </div>
         </Layout>
     )
 };
-
-export async function getStaticProps() {
-    const { data, statusCode } = await getCharacters();
-    return {
-        props: { characters: data, statusCode }
-    }
-}
 
 export default Characters;

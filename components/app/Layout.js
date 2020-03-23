@@ -15,7 +15,7 @@ const Layout = ({ children, title, statusCode }) => {
                 <section>
                     { children }
                 </section>
-                <Footer/>
+                {/*<Footer/>*/}
                 </>
             ) : (
                 <Error statusCode={statusCode}/>
