@@ -1,4 +1,4 @@
-# APP RICK AND MORTY WITH NETX.JS
+# APP RICK & MORTY WITH NETX.JS
 
 This project is a basic next js app example.
 
