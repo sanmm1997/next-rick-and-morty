@@ -8,3 +8,17 @@
         border-radius: 0;
     }
 }
+
+a {
+    > i.fas {
+        padding: 0 5px;
+    }
+}
+
+.navbar-collapse {
+    a {
+        &:hover {
+            text-shadow: 1px 1px 1px #000000a6;
+        }
+    }
+}

@@ -1,6 +1,6 @@
-export const getCharactersWithPaging = `
+export const getCharactersWithPaging = (page= 1) => `
 {
-    characters {
+    characters(page: ${page}) {
         info {
             count
             pages

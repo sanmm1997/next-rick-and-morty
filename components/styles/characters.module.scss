@@ -1,5 +1,4 @@
 .characters {
-  margin-top: 3%;
   article {
     padding: 0 1.5%;
   }
@@ -27,6 +26,13 @@
       p {
         color: #191616d4;
         font-size: .9em;
+      }
+      a {
+        &:hover {
+          border-color: #e8585a;
+          color: #e8585a !important;
+          background-color: #fff !important;
+        }
       }
     }
   }

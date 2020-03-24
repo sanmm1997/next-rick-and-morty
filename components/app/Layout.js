@@ -8,18 +8,16 @@ const Layout = ({ children, title, statusCode }) => {
 
     return (
         <>
-            {(showChildren) ? (
-                <>
-                <Head title={title}/>
-                <Header/>
-                <section>
-                    { children }
-                </section>
-                {/*<Footer/>*/}
-                </>
-            ) : (
-                <Error statusCode={statusCode}/>
-            )}
+            <Head title={title}/>
+            <Header/>
+            <section>
+                {(showChildren) ? (
+                    children
+                ) : (
+                    <Error statusCode={statusCode}/>
+                )}
+            </section>
+            {/*<Footer/>*/}
             <style jsx>
             {`
                 section {

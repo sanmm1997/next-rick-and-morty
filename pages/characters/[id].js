@@ -36,12 +36,14 @@ const Character = ({ character }) => {
                             <div className="col-12 mt-4">
                                 <h2>Episodes</h2>
                             </div>
-                            <List
-                                colMd={3}
-                                className="p-2"
-                                items={data.character.episode}
-                                render={(episode) => <EpisodeItem episode={episode}/>}/>
+
                         </div>
+                        <List
+                            colMd={3}
+                            className="row p-2"
+                            items={data.character.episode}
+                            render={(episode) => <EpisodeItem episode={episode}/>}
+                        />
                     </>
                 )}
             </div>

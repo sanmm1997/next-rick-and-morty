@@ -2,12 +2,19 @@ import { memo } from 'react';
 import Link from "next/link";
 
 import styles from './../styles/colors.module.scss';
+import { fadeIn } from './../styles/animation.module.scss';
 
 const Header = ({ title }) => {
-  return (
-      <>
+    const classes = [
+        fadeIn,
+        styles.bgRickAndMorty,
+        'navbar navbar-expand-md navbar-dark justify-content-between '
+    ].join(' ');
+
+    return (
+        <>
           <header>
-              <nav className={['navbar navbar-expand-md navbar-dark justify-content-between', styles.bgRickAndMorty].join(' ')}>
+              <nav className={classes}>
                  <div>
                      <Link  href="/">
                          <a className="navbar-brand">
@@ -21,10 +28,16 @@ const Header = ({ title }) => {
                   <div className="collapse navbar-collapse" id="navbarCollapse">
                       <div className="navbar-nav">
                           <Link href="/">
-                              <a className="nav-item nav-link text-white">Home</a>
+                              <a className="nav-item nav-link text-white">
+                                  <i className="fas fa-home"/>
+                                  Home
+                              </a>
                           </Link>
                           <Link href="/characters">
-                              <a className="nav-item nav-link text-white">Characters</a>
+                              <a className="nav-item nav-link text-white">
+                                  <i className="fas fa-user-tie"/>
+                                  Characters
+                              </a>
                           </Link>
                       </div>
                   </div>
@@ -35,14 +48,15 @@ const Header = ({ title }) => {
                   .navbar-collapse {
                     flex-grow: unset;
                     padding-right: 3%;
+                    width: fit-content;
                   }
                   .navbar {
                     box-shadow: 1px 1px 6px #0000009e;
                   }
               `}
           </style>
-      </>
-  )
+        </>
+    )
 };
 
 export default memo(Header);

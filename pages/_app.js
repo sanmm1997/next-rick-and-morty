@@ -9,6 +9,8 @@ import { GraphQLProvider } from 'graphql-react'
 import 'nprogress/nprogress.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './../components/styles/global.scss';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeError', () => NProgress.done());

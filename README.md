@@ -16,8 +16,14 @@ Required Node.js >= 12
 
 ## SCREENSHOTS
 
+![Screenshot](./.readme-static/screenshot-project-2.png)
+
+![Screenshot](./.readme-static/screenshot-project-3.png)
+
 ![Screenshot](./.readme-static/screenshot-project-1.png)
 
 
+
 ## LICENCE 
+
 MIT

@@ -1,39 +1,44 @@
-import {useGraphQL} from "graphql-react/universal/useGraphQL";
+import { withRouter } from 'next/router'
 import {getCharactersQuery} from "../../api/rickAndMorty";
-import styles from '../../components/styles/characters.module.scss';
-/**
- *
- * Components
- *
- */
-import Layout from "../../components/app/Layout";
+import {useGraphQL} from "graphql-react/universal/useGraphQL";
+
 import List from "../../components/utils/List";
+import Pager from "../../components/utils/Pager";
+import Layout from "../../components/app/Layout";
 import CharacterItem from "../../components/characters/CharacterItem";
+import Container from "../../components/app/Container";
+
+import styles from '../../components/styles/characters.module.scss';
+import { fadeInDown } from '../../components/styles/animation.module.scss';
 
 const Characters = (props) => {
-    const { loading, cacheValue: { data, ...errors } = {} } = useGraphQL(getCharactersQuery);
+    const { router } = props;
+    const { loading, cacheValue: { data, ...errors } = {} } = useGraphQL(getCharactersQuery(router.query.page));
+    const statusCode = (Object.keys(errors).length === 0) ? 200 : errors.graphQLErrors[0].extensions.response.status;
 
     return (
         <Layout
             loading={loading}
-            statusCode={props.statusCode}
+            statusCode={statusCode}
         >
-            <div className="container">
-                <div className={['row', styles.characters].join(' ')}>
-                    <div className="col-12 text-center">
-                        <h1>Characters Rick and Morty</h1>
-                    </div>
-                    {data &&
-                        (<List
+            <Container title="Characters Rick And Morty">
+                {
+                    (data && data.characters) &&
+                    <>
+                        <Pager info={data.characters.info}/>
+                        <List
                             colMd={3}
+                            pager={data.characters.info}
                             items={data.characters.results}
+                            className={['row', fadeInDown, styles.characters].join(' ')}
                             render={(character) => <CharacterItem character={character}/>}
-                        />)
-                    }
-                </div>
-            </div>
+                        />
+                        <Pager info={data.characters.info}/>
+                    </>
+                }
+            </Container>
         </Layout>
     )
 };
 
-export default Characters;
+export default withRouter(Characters);
