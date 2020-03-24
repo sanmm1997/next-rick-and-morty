@@ -22,6 +22,8 @@ Required Node.js >= 12
 
 ![Screenshot](./.readme-static/screenshot-project-1.png)
 
+![Screenshot](./.readme-static/screenshot-project-4.png)
+
 
 
 ## LICENCE 
