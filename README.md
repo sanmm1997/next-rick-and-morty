@@ -5,8 +5,8 @@ This project is a basic next js app example.
 ![Screenshot](./.readme-static/screenshot-project.png)
 
 ## IMPORTANT
-
-Required Node.js >= 12
+- Deploy app https://next-rick-and-morty.now.sh/
+- Required Node.js >= 12
 
 ## INSTALLATION PROCESS
 
